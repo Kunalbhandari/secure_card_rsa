@@ -70,7 +70,7 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="card">
-                <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+                <img src="jeans.jpg" alt="Denim Jeans" style="width:100%">
                 <h1>Tailored Jeans</h1>
                 <p class="price">$19.99</p>
                 <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
@@ -79,8 +79,8 @@
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
-                <h1>Tailored Jeans</h1>
+                <img src="oneplus-7pro.jpg" alt="Denim Jeans" style="width:100%">
+                <h1>Mobile Phones</h1>
                 <p class="price">$19.99</p>
                 <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
                 <p><button>Buy</button></p>
@@ -88,8 +88,8 @@
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
-                <h1>Tailored Jeans</h1>
+                <img src="rado.jpg" alt="Denim Jeans" style="width:100%">
+                <h1>Watches</h1>
                 <p class="price">$19.99</p>
                 <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
                 <p><button>Buy</button></p>
