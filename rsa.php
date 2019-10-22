@@ -42,19 +42,30 @@ class RSA{
                    break;
                 }
             }
-            echo $message,$this->d,$this->n."<br>";
+            //echo $message,$this->d,$this->n."<br>";
         return bcpowmod($message,$this->d,$this->n);
     }
 }
 
 $data = new RSA();
-$message = 3217;
-echo "$message<br>";
-$encrypt = $data->encrypt_rsa($message);
-echo "$encrypt<br>";
-$decrypt = $data->decrypt_rsa($encrypt);
-echo "$decrypt<br>";
- 
+$message1 = '0007';
+$message2 = '0001';
+$message3 = '0099';
+$message4 = '0791';
+echo "$message1"."$message2"."$message3"."$message4<br>";
+
+$encrypt1 = $data->encrypt_rsa($message1);
+$encrypt2 = $data->encrypt_rsa($message2);
+$encrypt3 = $data->encrypt_rsa($message3);
+$encrypt4 = $data->encrypt_rsa($message4);
+echo "$encrypt1$encrypt2$encrypt3$encrypt4<br>";
+
+$decrypt1 = $data->decrypt_rsa($encrypt1);
+$decrypt2 = $data->decrypt_rsa($encrypt2);
+$decrypt3 = $data->decrypt_rsa($encrypt3);
+$decrypt4 = $data->decrypt_rsa($encrypt4);
+echo "$decrypt1$decrypt2$decrypt3$decrypt4<br>";
+
 
  // require 'mysql_connecti.php';
     

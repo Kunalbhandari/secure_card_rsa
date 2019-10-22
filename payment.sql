@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2019 at 04:27 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Oct 22, 2019 at 08:38 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -38,8 +40,13 @@ CREATE TABLE `card` (
 
 INSERT INTO `card` (`uname`, `cardnum`, `encr_cardnum`) VALUES
 ('kunal', '4512468256219999', '6300950088715038'),
+('arnab', '5401129747606900', '85371459991112727'),
 ('arnab', '7589502425743217', '59627587176161054'),
-('arnab', '7589502425743217', '59627587176161054');
+('kunal', '9521172774566201', '65461143771674240'),
+('arnab', '4094025400113791', '1824313335870711423'),
+('kunal', '4094025400113791', '1824313335870711423'),
+('kunal', '7000100990791', '168071167297548'),
+('arnab', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -86,6 +93,7 @@ ALTER TABLE `login`
 --
 ALTER TABLE `card`
   ADD CONSTRAINT `foreign` FOREIGN KEY (`uname`) REFERENCES `login` (`uname`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
