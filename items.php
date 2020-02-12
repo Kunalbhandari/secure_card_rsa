@@ -81,7 +81,7 @@
             <div class="card">
                 <img src="oneplus-7pro.jpg" alt="Denim Jeans" style="width:100%">
                 <h1>Mobile Phones</h1>
-                <p class="price">$19.99</p>
+                <p class="price">$649</p>
                 <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
                 <p><button>Buy</button></p>
             </div>
@@ -90,7 +90,7 @@
             <div class="card">
                 <img src="rado.jpg" alt="Denim Jeans" style="width:100%">
                 <h1>Watches</h1>
-                <p class="price">$19.99</p>
+                <p class="price">$109.99</p>
                 <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
                 <p><button>Buy</button></p>
             </div>

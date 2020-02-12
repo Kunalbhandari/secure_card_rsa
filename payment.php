@@ -132,15 +132,13 @@ span.price {
 </head>
 <body>
 
-<h2>Checkout Form</h2>
+<h2 style="text-align: center;">Checkout Form</h2>
 <p></p>
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form >
-      
+      <form>
         <div class="row">
-          
           <div class="col-50">
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
@@ -155,16 +153,16 @@ span.price {
             <label for="ccnum">Credit card number</label>
             <div class="row">
               <div class="col-25">
-                <input type="text" maxlength="4" minlength="4" class="ccnum" name="cardnumber1" >
+                <input type="text" minlength="4" maxlength="4" class="ccnum" name="cardnumber1" required>
               </div>  
               <div class="col-25">
-                <input type="text" maxlength="4" minlength="4" class="ccnum" name="cardnumber2" >
+                <input type="text" minlength="4" maxlength="4" class="ccnum" name="cardnumber2" required>
               </div>
               <div class="col-25">
-                <input type="text" maxlength="4" minlength="4" class="ccnum" name="cardnumber3" >
+                <input type="text" minlength="4" maxlength="4" class="ccnum" name="cardnumber3" required>
               </div>
               <div class="col-25">
-                <input type="text" maxlength="4" minlength="4" class="ccnum" name="cardnumber4" >
+                <input type="text" minlength="4" maxlength="4" class="ccnum" name="cardnumber4" required>
               </div>
             </div>
             <label for="expmonth">Exp Month</label>
@@ -189,7 +187,6 @@ span.price {
       </form>
     </div>
   </div>
-</div>
   <div class="col-25">
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
@@ -201,7 +198,7 @@ span.price {
       <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
     </div>
   </div>
-  </div>
+</div>
 
 
   <input type="submit" id="sub" value="SUBMIT" onclick="func()" class="btn">
@@ -210,10 +207,14 @@ span.price {
 
 
 <form id="sampleForm" name="sampleForm" method="post" action="payment1.php">
-<input type="hidden" name="cardenc1" id="11">
-<input type="hidden" name="cardenc2" id="12">
-<input type="hidden" name="cardenc3" id="13">
-<input type="hidden" name="cardenc4" id="14">
+<input type="hidden" name="card1" id="01" required>
+<input type="hidden" name="card2" id="02" required>
+<input type="hidden" name="card3" id="03" required>
+<input type="hidden" name="card4" id="04" required>
+<input type="hidden" name="cardenc1" id="11" required>
+<input type="hidden" name="cardenc2" id="12" required> 
+<input type="hidden" name="cardenc3" id="13" required>
+<input type="hidden" name="cardenc4" id="14" required>
 </form>
 
 <script type="text/javascript">
@@ -311,7 +312,29 @@ function passVal(res)
   document.sampleForm.cardenc2.value = res[1];
   document.sampleForm.cardenc3.value = res[2];
   document.sampleForm.cardenc4.value = res[3];
-   document.forms["sampleForm"].submit();
+
+   var i,y,nu = [0,0,0,0];
+   for(i=0;i<4;i++){
+      var a = cnum[i].value;
+      if(a.length!==4){
+         alert('Please check 16 Digit Credit Card Number');
+         window.exit();
+      }
+      for(y=0;y<4;y++){
+        if(a[y]==='0'){
+           nu[i] = nu[i] + 1;
+        }
+        else{
+          break;
+        }
+      }
+   }
+
+   document.sampleForm.card1.value = nu[0];
+  document.sampleForm.card2.value = nu[1];
+  document.sampleForm.card3.value = nu[2];
+  document.sampleForm.card4.value = nu[3];
+  document.forms["sampleForm"].submit();
   // window.location.href="payment1.php?cardenc1="+res[0]+"&cardenc2="+res[1]+"&cardenc3="+res[2]+"&cardenc4="+res[3];
 }
 
@@ -319,7 +342,7 @@ function passVal(res)
 function func()
 {
   dic=getPublicKey();
-  console.log(dic);
+  //console.log(dic);
   e=dic['e'];
   //d=dic['d'];
   n=dic['n'];
@@ -328,14 +351,13 @@ function func()
   result=[0,0,0,0];
   for(var i=0;i<cnum.length;i++)
   {
-    cnum[i].value=Number(cnum[i].value);
+    cnum[i].value=cnum[i].value;
     result[i] = powFun(cnum[i].value,e,n);
-    // result1= powFun(result[i],d,n);
+    //result1= powFun(result[i],d,n);
     //console.log(cnum[i].value)
     //console.log(result[i])
-    // console.log(result1)
+    //console.log(result1)
   }
-
   //console.log("hello1")
   passVal(result);
   

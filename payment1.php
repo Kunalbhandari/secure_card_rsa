@@ -1,4 +1,3 @@
-
 <?php 
     session_start();
      if(!(isset($_SESSION['uname']))){
@@ -6,19 +5,33 @@
      window.location='login.html';
      </script>";
        exit();
- }
+}
 
-$c1=$_POST['cardenc1'];
+  $c1=$_POST['cardenc1'];
   $c2=$_POST['cardenc2'];
   $c3=$_POST['cardenc3'];
   $c4=$_POST['cardenc4'];
-  //echo $c1."<br>".$c2."<br>".$c3."<br>".$c4."<br>";
+
+  $q1=$_POST['card1'];
+  $q2=$_POST['card2'];
+  $q3=$_POST['card3'];
+  $q4=$_POST['card4'];
+
+
+  $num0 = [$q1,$q2,$q3,$q4];
+  for($i=0;$i<4;$i++){
+     if($num0[$i]==4){
+       $num0[$i] = 3;
+     }
+  }
+
+  //echo $num0[0]."<br>".$num0[1]."<br>".$num0[2]."<br>".$num0[3]."<br>";
 
    $cardno = (string)$c1.(string)$c2.(string)$c3.(string)$c4;
-    $c1 = (int)$c1;
-    $c2 = (int)$c2;
-    $c3 = (int)$c3;
-    $c4 = (int)$c4;
+    // $c1 = (int)$c1;
+    // $c2 = (int)$c2;
+    // $c3 = (int)$c3;
+    // $c4 = (int)$c4;
 
    
 class RSA{
@@ -95,8 +108,25 @@ $decrypt3=$data->decrypt_rsa($c3);
 $decrypt4=$data->decrypt_rsa($c4);
 
 $decrypt = "";
+$d = [$decrypt1,$decrypt2,$decrypt3,$decrypt4];
+
+for ($x = 0; $x < 4; $x++) {
+    $qaa = $num0[$x];
+      for($ze = 0 ; $ze < $qaa ; $ze++){
+        $d[$x] = "0".$d[$x];
+      }
+    }
+
+$decrypt1 = $d[0];
+$decrypt2 = $d[1];
+$decrypt3 = $d[2];
+$decrypt4 = $d[3];
+//echo $d[0]." ".$d[1]." ".$d[2]." ".$d[3]."<br>";
+
 $decrypt = (string)$decrypt1.(string)$decrypt2.(string)$decrypt3.(string)$decrypt4;
 $x=1;
+//echo $decrypt;
+
 
  include('mysql_connecti.php');
 
